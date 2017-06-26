@@ -1,0 +1,39 @@
+#!/bin/bash
+
+function instruct {
+    cmd="qdbus org.kde.yakuake $1"
+    eval $cmd &> /dev/null
+    sleep 0.5
+}
+
+yakuake
+
+instruct "/yakuake/sessions org.kde.yakuake.addSession"
+instruct "/yakuake/sessions org.kde.yakuake.addSession"
+instruct "/yakuake/sessions org.kde.yakuake.addSession"
+instruct "/yakuake/sessions org.kde.yakuake.addSession"
+instruct "/yakuake/sessions org.kde.yakuake.addSession"
+instruct "/yakuake/sessions org.kde.yakuake.addSession"
+
+instruct "/yakuake/tabs org.kde.yakuake.setTabTitle 0 root"
+instruct "/yakuake/tabs org.kde.yakuake.setTabTitle 1 server"
+instruct "/yakuake/tabs org.kde.yakuake.setTabTitle 2 client"
+instruct "/yakuake/tabs org.kde.yakuake.setTabTitle 3 embroker"
+instruct "/yakuake/tabs org.kde.yakuake.setTabTitle 4 Development"
+instruct "/yakuake/tabs org.kde.yakuake.setTabTitle 5 builds"
+
+instruct "/Sessions/1 org.kde.konsole.Session.sendText 'sudo su'"
+instruct "/Sessions/2 org.kde.konsole.Session.sendText 'cd Development/embroker/src/github.com/embroker/embroker/server/'"
+instruct "/Sessions/3 org.kde.konsole.Session.sendText 'cd Development/embroker/src/github.com/embroker/embroker/client'"
+instruct "/Sessions/4 org.kde.konsole.Session.sendText 'cd Development/embroker/src/github.com/embroker/embroker/'"
+instruct "/Sessions/5 org.kde.konsole.Session.sendText 'cd Development'"
+instruct "/Sessions/6 org.kde.konsole.Session.sendText 'cd builds'"
+
+instruct "/Sessions/1 org.kde.konsole.Session.sendText \$'\n'"
+instruct "/Sessions/1 org.kde.konsole.Session.sendText 'j3b1s3t1'"
+instruct "/Sessions/1 org.kde.konsole.Session.sendText \$'\n'"
+instruct "/Sessions/2 org.kde.konsole.Session.sendText \$'\n'"
+instruct "/Sessions/3 org.kde.konsole.Session.sendText \$'\n'"
+instruct "/Sessions/4 org.kde.konsole.Session.sendText \$'\n'"
+instruct "/Sessions/5 org.kde.konsole.Session.sendText \$'\n'"
+instruct "/Sessions/6 org.kde.konsole.Session.sendText \$'\n'"
